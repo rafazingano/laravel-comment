@@ -17,6 +17,7 @@
         <hr>
         {!! Form::close() !!}
         <div class="kt-widget3">
+            @isset($comments)
             @foreach($comments as $comment)
                 <div class="kt-widget3__item">
                     <div class="kt-widget3__header">
@@ -43,6 +44,7 @@
                     </div>
                 </div>
             @endforeach
+            @endisset
         </div>
     </div>
 </div>
