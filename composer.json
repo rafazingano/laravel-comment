@@ -23,6 +23,7 @@
     "extra": {
         "laravel": {
             "providers": [
+                "ConfrariaWeb\\Comment\\Providers\\CommentEventServiceProvider",
                 "ConfrariaWeb\\Comment\\Providers\\CommentServiceProvider"
             ]
         }

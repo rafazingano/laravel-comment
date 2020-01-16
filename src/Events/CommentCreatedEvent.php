@@ -25,8 +25,10 @@ class CommentCreatedEvent
      */
     public function __construct(Comment $comment)
     {
-        //$this->comment = $comment; //obj do comentario
-        //$this->obj = $comment->commentable; //Onde estou comentando
+        $this->obj = $comment->commentable;
+        $this->historic = new CommentCreatedHistoric($comment);
+
+        //$this->comment = $comment;
         //$historicClass = class_historic($this->obj, 'CommentCreated'); //namespace obj do historico
         //$this->historic = new $historicClass($this->obj, $comment); //chamada obj do historico
     }

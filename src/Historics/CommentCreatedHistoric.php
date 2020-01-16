@@ -24,7 +24,7 @@ class CommentCreatedHistoric implements HistoricContract
 
     public function title()
     {
-        return 'Comentario criado';
+        return 'Comentário criado';
     }
 
     public function user($collunn = null)
