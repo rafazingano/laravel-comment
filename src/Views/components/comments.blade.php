@@ -1,49 +1,71 @@
-<div class="portlet">
-    <div class="portlet__head" id="comments">
-        <div class="portlet__head-label">
-            <h3 class="portlet__head-title">{{ $title }}</h3>
+<div class="cw-comments">
+    {!! Form::open(['route' => [$route, $id], 'method' => 'post', 'class' => 'horizontal-form']) !!}
+    <div class="form-group row">
+        <div class="col-10">
+            <textarea name="content" placeholder="Deixe aqui um comentário" class="form-control"
+                      style="height: 80px;"></textarea>
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-brand" style="height: 80px;">{{ __('send') }}</button>
         </div>
     </div>
-    <div class="portlet__body">
-        {!! Form::open(['route' => [$route, $id], 'method' => 'post', 'class' => 'horizontal-form']) !!}
-        <div class="form-group row">
-            <div class="col-10">
-                <textarea name="content" placeholder="Deixe aqui um comentário" class="form-control" style="height: 80px;"></textarea>
-            </div>
-            <div class="col-2">
-                <button type="submit" class="btn btn-brand" style="height: 80px;">{{ __('send') }}</button>
-            </div>
-        </div>
-        <hr>
-        {!! Form::close() !!}
-        <div class="widget3">
-            @isset($comments)
+    <hr>
+    {!! Form::close() !!}
+    <div class="">
+        @isset($comments)
             @foreach($comments as $comment)
-                <div class="widget3__item">
-                    <div class="widget3__header">
-                        <div class="widget3__user-img">
-                            <img class="widget3__img" src="{{ $comment->user->avatar() }}" alt="{{ $comment->user->name }} ">
+                <div class="comment">
+                    <div>
+                        <div class="user-img">
+                            <img class="img" src="{{ $comment->user->avatar() }}" alt="{{ $comment->user->name }} ">
                         </div>
-                        <div class="widget3__info">
-                            <a href="#" class="widget3__username">
+                        <div class="info">
+                            <a href="#" class="username text-primary text-black-50">
                                 {{ $comment->user->name }} ({{ $comment->user->roles->implode('display_name', ', ') }})
                             </a>
                             <br>
-                            <span class="widget3__time">
+                            <span class="time">
                                 {{ $comment->created_at->diffForHumans() }}
                             </span>
                         </div>
-                        <span class="widget3__status font-warning">
-                        </span>
                     </div>
-                    <div class="widget3__body">
-                        <p class="widget3__text">
+                    <div class="comment-text">
+                        <p class="text">
                             {{ $comment->content }}
                         </p>
                     </div>
                 </div>
+                <hr>
             @endforeach
-            @endisset
-        </div>
+        @endisset
     </div>
 </div>
+
+@push('styles')
+    <style>
+        .cw-comments {
+
+        }
+
+        .cw-comments .comment{
+            display: grid;
+        }
+
+        .cw-comments .user-img{
+            float: left;
+        }
+
+        .cw-comments .user-img img{
+            height: 60px;
+        }
+
+        .cw-comments .info{
+            float: left;
+            margin-left: 20px;
+        }
+
+        .cw-comments .comment-text{
+            padding: 4px 2px 2px 80px;
+        }
+    </style>
+@endpush
