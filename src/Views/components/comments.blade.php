@@ -6,7 +6,7 @@
                       style="height: 80px;"></textarea>
         </div>
         <div class="col-2">
-            <button type="submit" class="btn btn-brand" style="height: 80px;">{{ __('send') }}</button>
+            <button type="submit" class="btn btn-brand" style="height: 80px;">{{ __('Enviar') }}</button>
         </div>
     </div>
     <hr>
