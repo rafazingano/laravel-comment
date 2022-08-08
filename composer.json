@@ -1,6 +1,6 @@
 {
     "name": "confrariaweb/laravel-comment",
-    "version": "dev-master",
+    "version": "1.0.0",
     "description": "Simple comment package for laravel",
     "keywords": [
         "comment",
